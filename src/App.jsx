@@ -7,6 +7,10 @@ import Desktops from "./pages/Desktops";
 import Accessories from "./pages/Accessories";
 import { Discount } from "./pages/Discount";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import UserDashboard from "./pages/UserDashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 
 
 function App() {
@@ -15,11 +19,13 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<SignUp />} />
         <Route path="product/:id" element={<ProductDetail />} />
         <Route path="laptops" element={<Laptops />} />
         <Route path="desktops" element={<Desktops />} />
         <Route path="accessories" element={<Accessories />} />
         <Route path="discounts" element={<Discount />} />
+        <Route path="userdashboard" element={ <ProtectedRoute><UserDashboard /></ProtectedRoute> } />
       </Route>
     </Routes>
   );
